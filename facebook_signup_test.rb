@@ -6,7 +6,7 @@ include RSpec::Expectations
 describe "FacebookSignupTest" do
 
   before(:each) do
-    @driver = Selenium::WebDriver.for :firefox
+    @driver = Selenium::WebDriver.for :chrome
     @base_url = "https://www.facebook.com/"
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
