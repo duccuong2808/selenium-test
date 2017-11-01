@@ -1,6 +1,7 @@
 require "json"
 require "selenium-webdriver"
 require "rspec"
+require 'rspec_junit_formatter'
 include RSpec::Expectations
 Selenium::WebDriver::Chrome.driver_path='/usr/local/bin/chromedriver'
 describe "FacebookSignupTest" do
@@ -15,7 +16,7 @@ describe "FacebookSignupTest" do
   
   after(:each) do
     @driver.quit
-    @verification_errors.expect == []
+    @verification_errors.should == []
   end
   
   it "test_facebook_signup" do
