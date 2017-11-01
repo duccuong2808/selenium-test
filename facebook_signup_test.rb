@@ -15,7 +15,7 @@ describe "FacebookSignupTest" do
   
   after(:each) do
     @driver.quit
-    @verification_errors.should == []
+    @verification_errors.expect == []
   end
   
   it "test_facebook_signup" do
