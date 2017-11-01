@@ -1,13 +1,14 @@
 require "json"
 require "selenium-webdriver"
 require "rspec"
+require 'rspec_junit_formatter'
 include RSpec::Expectations
-
-describe "FacebookSignupTestError" do
+Selenium::WebDriver::Chrome.driver_path='/usr/local/bin/chromedriver'
+describe "Demo01Guru99" do
 
   before(:each) do
-    @driver = Selenium::WebDriver.for :firefox
-    @base_url = "https://www.facebook.com/"
+    @driver = Selenium::WebDriver.for :chrome
+    @base_url = "http://demo.guru99.com/"
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
@@ -18,20 +19,11 @@ describe "FacebookSignupTestError" do
     @verification_errors.should == []
   end
   
-  it "test_facebook_signup_test_error" do
+  it "test_demo01_guru99" do
     @driver.get(@base_url + "/")
-    @driver.find_element(:id, "u_0_g").clear
-    @driver.find_element(:id, "u_0_g").send_keys "Nguyen"
-    @driver.find_element(:id, "u_0_i").clear
-    @driver.find_element(:id, "u_0_i").send_keys "Cuong"
-    @driver.find_element(:id, "u_0_l").clear
-    @driver.find_element(:id, "u_0_l").send_keys "0985641091"
-    @driver.find_element(:id, "u_0_s").clear
-    @driver.find_element(:id, "u_0_s").send_keys "thisispass"
-    Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "day")).select_by(:text, "21")
-    Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "month")).select_by(:text, "Tháng 1")
-    Selenium::WebDriver::Support::Select.new(@driver.find_element(:id, "year")).select_by(:text, "1919")
-    @driver.find_element(:xpath, "//span[@id='u_0_w']/span[2]/input[value='1']").click
+    @driver.find_element(:name, "emailid").clear
+    @driver.find_element(:name, "emailid").send_keys "biendond@gmail.com"
+    @driver.find_element(:name, "btnLogin").click
   end
   
   def element_present?(how, what)

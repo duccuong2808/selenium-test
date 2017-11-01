@@ -1,1 +1,1 @@
-rspec facebook_signup_test.rb --format progress --format html --out reports/rspec.html --format RspecJunitFormatter --out reports/rspec.xml
+rspec demo01_guru99.rb --format progress --format html --out reports/rspec.html --format RspecJunitFormatter --out reports/rspec.xml
