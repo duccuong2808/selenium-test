@@ -2,11 +2,10 @@ require "json"
 require "selenium-webdriver"
 require "rspec"
 include RSpec::Expectations
-
+Selenium::WebDriver::Chrome.driver_path='/usr/local/bin/chromedriver'
 describe "FacebookSignupTest" do
 
   before(:each) do
-    Selenium::WebDriver::Chrome.driver_path='/usr/local/bin/chromedriver'
     @driver = Selenium::WebDriver.for :chrome
     @base_url = "https://www.facebook.com/"
     @accept_next_alert = true
