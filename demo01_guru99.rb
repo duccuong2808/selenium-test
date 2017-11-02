@@ -1,7 +1,7 @@
 require "json"
 require "selenium-webdriver"
 require "rspec"
-require 'rspec_junit_formatter'
+require "rspec_junit_formatter"
 include RSpec::Expectations
 Selenium::WebDriver::Chrome.driver_path='/usr/local/bin/chromedriver'
 describe "Demo01Guru99" do
@@ -24,6 +24,7 @@ describe "Demo01Guru99" do
     @driver.find_element(:name, "emailid").clear
     @driver.find_element(:name, "emailid").send_keys "biendond@gmail.com"
     @driver.find_element(:name, "btnLogin").click
+    verify { (@driver.find_element(:xpath, "//td[2]").text).should == "mngr102953" }
   end
   
   def element_present?(how, what)
